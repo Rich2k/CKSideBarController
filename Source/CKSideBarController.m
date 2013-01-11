@@ -146,6 +146,30 @@
     return YES;
 }
 
+//non-auto rotate
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)o {
+	for (UIViewController * vc in self.viewControllers){
+		if ([vc shouldAutorotateToInterfaceOrientation:0] == NO)
+			return NO;
+	}
+	return YES;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)orient
+                                         duration:(NSTimeInterval)duration {
+	for (UIViewController * vc in self.viewControllers){
+		[vc willAnimateRotationToInterfaceOrientation:orient duration:duration];
+	}
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)orient {
+	for (UIViewController * vc in self.viewControllers){
+		[vc didRotateFromInterfaceOrientation:orient];
+	}
+}
+
+
+
 #pragma mark - public
 
 - (void)refresh {
