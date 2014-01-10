@@ -22,7 +22,7 @@
 #define CKSideBarWidth 84
 #define CKCornerRadius 6
 #define CKSideBarButtonHeight 84
-#define CKSideBarImageEdgeLength 28
+#define CKSideBarImageEdgeLength 30
 
 
 @interface CKSideBarCell : UITableViewCell
@@ -67,9 +67,9 @@
     CGFloat spacing = 6.0;
     CGFloat width = self.bounds.size.width - CKCornerRadius;
     CGFloat height = self.bounds.size.height;
-    self.iconView.frame = CGRectMake((width / 2) - (CKSideBarImageEdgeLength / 2), (height / 2) - (CKSideBarImageEdgeLength / 2) - ((spacing + 11) / 2), CKSideBarImageEdgeLength, CKSideBarImageEdgeLength);
+    self.iconView.frame = CGRectMake(ceilf((width / 2) - (CKSideBarImageEdgeLength / 2)), ceilf((height / 2) - (CKSideBarImageEdgeLength / 2) - ((spacing + 11) / 2)), CKSideBarImageEdgeLength, CKSideBarImageEdgeLength);
     self.titleLabel.frame = CGRectMake(0, CGRectGetMaxY(self.iconView.frame) + spacing, width, 11);
-    self.glowView.frame = CGRectMake(0, (height / 2) - (self.glowView.image.size.height / 2), self.glowView.image.size.width, self.glowView.image.size.height);
+    self.glowView.frame = CGRectMake(0, ceilf((height / 2) - (self.glowView.image.size.height / 2)), self.glowView.image.size.width, self.glowView.image.size.height);
 }
 
 - (void)setIsActive:(BOOL)isActive {
@@ -294,7 +294,11 @@ static char const * const CKSideBarItemKey = "CKSideBarItemKey";
     if (!item) {
         item = [[CKSideBarItem alloc] init];
         item.title = self.title;
-        item.image = [UIImage imageNamed:@"default-tabbar-icon.png"];
+        if (self.tabBarItem.image){
+            item.image = self.tabBarItem.image;
+        }else{
+            item.image = [UIImage imageNamed:@"default-tabbar-icon.png"];
+        }
         [self setSideBarItem:item];
     }
     return item;
