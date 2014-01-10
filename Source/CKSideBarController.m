@@ -246,6 +246,9 @@
     static NSString *reuseId = @"sideBar";
     CKSideBarCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     if (!cell) cell = [[CKSideBarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [[cell backgroundView] setBackgroundColor:[UIColor clearColor]];
 
     UIViewController *viewController = self.viewControllers[indexPath.row];
     CKSideBarItem *sideBarItem = viewController.sideBarItem;
