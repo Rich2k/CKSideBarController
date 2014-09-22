@@ -109,6 +109,7 @@
 
         self.sideBarView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CKSideBarWidth + CKCornerRadius, self.view.bounds.size.height) style:UITableViewStylePlain];
         self.sideBarView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
+        self.sideBarView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rough_diagonal"]];
         self.sideBarView.backgroundColor = [UIColor clearColor];
         self.sideBarView.scrollEnabled = NO;
         self.sideBarView.dataSource = self;
