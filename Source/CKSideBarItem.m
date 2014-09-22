@@ -31,7 +31,7 @@
         _image = image;
 
         self.unSelectedImage = [self tabBarImage:image size:image.size backgroundImage:nil];
-        self.selectedImage = [self tabBarImage:image size:image.size backgroundImage:[UIImage imageNamed:@"selected-image-background.png"]];
+        self.selectedImage = [self tabBarImage:image size:image.size backgroundImage:[UIImage imageNamed:@"selected-image-background"]];
     }
 }
 

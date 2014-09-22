@@ -49,7 +49,7 @@
         [self addSubview:self.iconView];
 
         self.glowView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        self.glowView.image = [UIImage imageNamed:@"tabbar-glow.png"];
+        self.glowView.image = [UIImage imageNamed:@"tabbar-glow"];
         self.glowView.hidden = YES;
         [self addSubview:self.glowView];
 
@@ -105,7 +105,7 @@
     
     self = [super init];
     if (self) {
-        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rough_diagonal.png"]];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rough_diagonal"]];
 
         self.sideBarView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CKSideBarWidth + CKCornerRadius, self.view.bounds.size.height) style:UITableViewStylePlain];
         self.sideBarView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
@@ -297,7 +297,7 @@ static char const * const CKSideBarItemKey = "CKSideBarItemKey";
         if (self.tabBarItem.image){
             item.image = self.tabBarItem.image;
         }else{
-            item.image = [UIImage imageNamed:@"default-tabbar-icon.png"];
+            item.image = [UIImage imageNamed:@"default-tabbar-icon"];
         }
         [self setSideBarItem:item];
     }
